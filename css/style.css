@@ -6,10 +6,14 @@
     src: url('fonts/Gilroy-Regular.ttf') format('ttf'),
     url('fonts/Gilroy-Regular.ttf') format('ttf');
   }
+  html {
+    width: 100%;
+  }
   :root {
       --card-height: 400px;
       --card-width: 300px;
   }
+  
 
   * {
       box-sizing: border-box;
@@ -17,8 +21,14 @@
 
   body {
       height: 100%;
+      margin: 0;
       /* padding: 40px; */
       background: #0f1822;
+      background-image: url("../images/bgimg.png");
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            background-position: right bottom;
+            background-size: 20em;
 
   }
   .logo {
@@ -28,9 +38,13 @@
     display: block;
   }
 
+  /* -------------------
+  agent card
+  --------------------- */
+
   .card {
-      width: var(--card-width);
-      height: var(--card-height);
+      width: 300px;
+      height: 500px;
       position: relative;
       display: flex;
       justify-content: center;
@@ -133,9 +147,9 @@
       text-decoration: none;
       text-align: center;
       font-family: 'Valorant', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-      font-size: 2em;
+      font-size: 1.5em;
       color: #fff;
-      margin: 30px 60px;
+      margin: 60px 60px;
       padding: 10px;
       border: solid #ff4654;
       border-width: 1px 0 1px 0;
@@ -143,30 +157,30 @@
 
   .grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       height: 50%;
       gap: 10px;
       justify-items: center;
   }
 
   .container {
-      margin: 30px 0;
+      margin: 10px 0;
   }
 
 
   h1 {
       text-align: center;
       color: #ff4654;
-      font-size: 3.5em;
+      font-size: 2.5em;
       font-family:'Valorant', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-      margin: 140px 0 0 0;
+      margin: 60px 0 0 0;
   }
 
   p {
       text-align: center;
       color: #fff;
       font-family: 'Gilroy-Regular', sans-serif;
-      margin: 30px 100px 60px;
+      margin: 10px 60px 60px;
       font-size: 16px;
       line-height: 2;
   }
@@ -188,8 +202,13 @@
   .landing {
     margin: 200px 0 0;
   }
-  @media screen and (max-width: 768px) {
-  
+
+  /* -------------------
+  nav
+  --------------------- */
+
+  /* @media screen and (max-width: 768px) { */
+
   nav ul.menu {
     display: flex;
     list-style-type: none;
@@ -248,7 +267,7 @@ nav ul.menu li a.active {
   .showMenu {
     transform: translateY(0);
   }
-}
+/* } */
 
   .title {
     font-size: 2em;
@@ -260,13 +279,16 @@ nav ul.menu li a.active {
     border: 0;
   }
 
+      /* -------------------
+  button 
+  --------------------- */
+
   .btn {
     line-height: 50px;
     height: 50px;
     text-align: center;
     width: 250px;
     cursor: pointer;
-    margin: 20px auto 100px;
   }
   .btn {
     color: #FFF;
@@ -282,7 +304,7 @@ nav ul.menu li a.active {
     color: #fff;
     font-family:'Montserrat', sans-serif;
     transition: all 0.3s;
-    margin: 20px auto 100px;
+    margin: 0px auto 100px;
   }
   .btn::before {
     content: '';
@@ -322,7 +344,7 @@ nav ul.menu li a.active {
     background-color: rgba(255,255,255,0.1);
   }
   .btn:hover::after {
-    opacity: 0; 
+    opacity: 0;
     transform: scale(0.1, 1);
   }
   footer {
@@ -370,20 +392,31 @@ h3 {
     height: 100%;
 }
 
+    /* -------------------
+  tablet view
+  --------------------- */
+
 @media screen and (min-width:768px) {
-    .grid {
-        grid-template-columns: 1fr 1fr 1fr;
+    .hamburger, .closeIcon, .showMenu {
+        display: none;
+    }
+
+  .grid {
+        display:grid;
+        grid-template-columns: 1fr 1fr;
         grid-gap: 20px;
         margin: 20px;
+    }
+    nav ul.menu li a {
+        font-size: 20px;
+        padding: 30px;
     }
     .card {
         width: 200px;
         height: 400px;
         padding: 20px;
     }
-    .fourth {
-      display: none;
-    }
+
     .wrapper {
         width: 300px;
     }
@@ -409,38 +442,54 @@ h3 {
     h3 {
         font-size: 3em;
     }
+
     nav ul.menu {
-        display: flex;
-        list-style-type: none;
-        color: snow;
-        flex-direction: row;
-        justify-content: space-around;
-    }
-    nav ul.menu li a {
-      text-decoration: none;
-      color: #fff;
-      font-size: 20px;
-      padding: 30px;
-      display: block;
-  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
-  
-  }
-  nav ul.menu li a:hover {
-  
-      color:#fff;
-      transform:translateY(-5px);
-      transition: 0.2s ease-in;
-  
-  }
-  nav ul.menu li a.active {
-      font-weight: bold;
-      color: #ff4654
-  }
-    .hamburger {
-        display: none;
+      display: flex;
+      list-style-type: none;
+      color: snow;
+      flex-direction: row;
+      padding: 0 40px 0 0;
     }
 
+  .hamburger {
+      display: none;
+  }
+
+  .menu {
+    display: block; /* Show the menu in desktop view */
+    position: absolute; /* Position the menu absolutely */
+    top: 50px; /* Adjust the top position as needed */
+    left: 20px; /* Adjust the right position as needed */
+    background-color:transparent;
+    padding: 10px;
+    justify-content: flex-end;
+  }
+
+  .showMenu {
+      display: none;
+  }
+
 }
+  
+      /* -------------------
+    large tablet view
+    --------------------- */
+
+  
+@media screen and (min-width: 960px) {
+    .grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-gap: 20px;
+        margin: 20px;
+    }
+    .fourth {
+      display: none;
+    }
+  }
+
+    /* -------------------
+  desktop view
+  --------------------- */
 
 @media screen and (min-width: 1200px) {
     .grid {
@@ -453,11 +502,18 @@ h3 {
         height: 400px;
         padding: 20px;
     }
-    .fourth {
-      display: block;
+    h2 {
+      margin: 0 40px 70px;
     }
     .wrapper {
-        width: 300px;
+      transition: all 0.5s;
+      position: absolute;
+      width: 280px;
+      height: 100%;
+      z-index: -1;
+  }
+    .fourth {
+      display: block;
     }
     .title {
         font-size: 28px;
@@ -487,6 +543,7 @@ h3 {
         list-style-type: none;
         color: snow;
         flex-direction: row;
+        padding: 0 40px 0 0;
         /* justify-content: space-around; */
     }
     nav ul.menu li a {
