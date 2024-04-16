@@ -13,7 +13,17 @@
       --card-height: 400px;
       --card-width: 300px;
   }
-  
+  #skip {
+    position: absolute;
+    left: -400px;
+    background-color: #ffffff;
+    padding: 10px;
+}
+#skip:focus {
+    display: inline-block;
+    left: 10px;
+    z-index: 1000;
+}
 
   * {
       box-sizing: border-box;
@@ -173,7 +183,7 @@
       color: #ff4654;
       font-size: 2.5em;
       font-family:'Valorant', Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-      margin: 60px 0 0 0;
+      margin: 60px 0 40px 0;
   }
 
   p {
@@ -200,7 +210,7 @@
 
   }
   .landing {
-    margin: 200px 0 0;
+    margin: 200px 0 80px;
   }
 
   /* -------------------
