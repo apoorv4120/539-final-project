@@ -460,6 +460,13 @@ h3 {
       flex-direction: row;
       padding: 0 40px 0 0;
     }
+    nav ul.menu li a:hover {
+
+      color:#fff;
+      transform:translateY(5px);
+      transition: 0.2s ease-in;
+  
+  }
 
   .hamburger {
       display: none;
@@ -472,6 +479,7 @@ h3 {
     left: 20px; /* Adjust the right position as needed */
     background-color:transparent;
     padding: 10px;
+    transform: none;
     justify-content: flex-end;
   }
 
@@ -568,7 +576,7 @@ h3 {
   nav ul.menu li a:hover {
   
       color:#fff;
-      transform:translateY(-5px);
+      transform:translateY(5px);
       transition: 0.2s ease-in;
   
   }
